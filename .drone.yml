@@ -3,3 +3,9 @@ pipeline:
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
     repo: publicintegrity/loader
+
+  slack:
+    image: plugins/slack
+    secrets: [ slack_webhook ]
+    when:
+      status: [ success, failure ]
