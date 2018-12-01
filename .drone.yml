@@ -4,6 +4,17 @@ pipeline:
     secrets: [ docker_username, docker_password ]
     repo: publicintegrity/loader
 
+  test:
+    image: publicintegrity/loader
+    pull: true
+    commands:
+      - node --version
+      - npm --version
+      - python --version
+      - wget --version
+      - bash --version
+      - psql --version
+
   slack:
     image: plugins/slack
     secrets: [ slack_webhook ]
